@@ -6,7 +6,7 @@
    - SparkFun_SCD30_Arduino_Library written by Nathan Seidle (SparkFun) at https://github.com/sparkfun/SparkFun_SCD30_Arduino_Library
 
   To-do:
-  - Implement support for TTGO T-Display by showing status and count down timer on display
+  - Implement support for TTGO T-Display to show status and countdown timer on display
 
 
   Copyright (c) 2021 Mario Elkati - eMariete https://emariete.com
@@ -26,7 +26,8 @@
 
 #include "SparkFun_SCD30_Arduino_Library.h"
 
-// #define ALTERNATIVE_I2C_PINS // For the compact build as shown at https://emariete.com/medidor-co2-display-tft-color-ttgo-t-display-sensirion-scd30/
+// Uncomment next line for the compact build as shown at https://emariete.com/medidor-co2-display-tft-color-ttgo-t-display-sensirion-scd30/
+// #define ALTERNATIVE_I2C_PINS 
 #define LEDPIN 2 // For standard ESP32 Devkit Board the bultin LED GPIO is 2
 
 SCD30 airSensor;
