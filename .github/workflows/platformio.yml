@@ -34,6 +34,15 @@ jobs:
         with:
           name: firmware_esp32dev
           path: .pio/build/esp32dev/firmware.bin
+      - name: Create Release
+        with:
+          tag_name: ${{ github.run_number }}
+          draft: True
+          files: |
+            *.bin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
 
   release:
     name: Create Release
