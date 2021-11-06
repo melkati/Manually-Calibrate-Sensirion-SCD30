@@ -1,24 +1,22 @@
-name: GitHub Release
-
 on:
   push:
     branches:    
       - main
     paths:
-      - 'RELEASE'
+      - '**/RELEASE'
   pull_request:
     types: [opened, synchronize]
     branches:
       - main
     paths:
-      - 'RELEASE'
+      - '**/RELEASE'
 
 jobs:
   gh-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: ./
+      - uses: pipe-cd/actions-gh-release@v2.1.0
         with:
-          release_file: 'RELEASE'
+          release_file: '**/RELEASE'
           token: ${{ secrets.GITHUB_TOKEN }}
