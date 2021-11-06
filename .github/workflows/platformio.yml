@@ -3,11 +3,11 @@ name: PlatformIO
 on:
   push:
     branches:
-      - master
+      - main
 
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -34,3 +34,7 @@ jobs:
         with:
           name: firmware_esp32dev
           path: .pio/build/esp32dev/firmware.bin
+      - uses: actions/upload-artifact@v2
+        with:
+          name: firmware_esp32dev
+          path: /
