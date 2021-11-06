@@ -38,7 +38,7 @@ jobs:
   release:
     name: Create Release
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
+    # if: startsWith(github.ref, 'refs/tags/')
     steps:
     - uses: actions/download-artifact@v2
       with:
@@ -46,6 +46,7 @@ jobs:
     - name: Create draft release
       uses: softprops/action-gh-release@v1
       with:
+        tag_name: ${{ github.run_number }}
         draft: True
         files: |
           *.bin
