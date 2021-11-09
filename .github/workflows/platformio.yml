@@ -73,5 +73,5 @@ jobs:
           pio run
       - uses: actions/upload-artifact@v2
         with:
-          name: firmware_esp32dev-v${{ steps.vars.outputs.version }}.bin
+          name: Calibrate_SCD30_${{ matrix.env }}-v${{ steps.vars.outputs.version }}-${{ steps.get-date.outputs.date }}.bin
           path: .pio/build/esp32dev/firmware.bin
