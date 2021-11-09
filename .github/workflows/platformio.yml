@@ -12,6 +12,21 @@ on:
  workflow_dispatch:
   
 jobs:
+
+  generate-matrix:
+    runs-on: ubuntu-20.04
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - id: set-matrix
+        run: |
+          pip install platformio
+          python tools/generate-matrix.py
+          
   build:
     runs-on: ubuntu-latest
     strategy:
