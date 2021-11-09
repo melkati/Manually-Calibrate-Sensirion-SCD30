@@ -25,11 +25,11 @@ jobs:
           platformio update
       - name: Build test
         run: |
-          pio run
+          pio run -e ${{ matrix.environment }}
       - uses: actions/upload-artifact@v2
         with:
-          name: firmware_esp32dev
-          path: .pio/build/esp32dev/firmware.bin
+          name: firmware-${{ matrix.environment }}
+          path: .pio/build/esp32dev/*.bin
       - name: Create release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1        
