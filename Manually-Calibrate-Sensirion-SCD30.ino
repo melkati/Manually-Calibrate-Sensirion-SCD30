@@ -36,9 +36,6 @@ SCD30 airSensor;
 #ifdef ALTERNATIVE_I2C_PINS
 #define I2C_SDA 22
 #define I2C_SCL 21
-#else
-#define I2C_SDA 21
-#define I2C_SCL 22
 #endif
 
 uint16_t calibrationValue = 415;
@@ -75,7 +72,11 @@ void setup()
   pinMode(LEDPIN,OUTPUT);
 
   // Initialize the SCD30 driver
-  Wire.begin(I2C_SDA, I2C_SCL);
+  #ifdef ALTERNATIVE_I2C_PINS
+    Wire.begin(I2C_SDA, I2C_SCL);
+  #else
+    Wire.begin();
+  #endif
   if (airSensor.begin() == false)
   {
     Serial.println("Air sensor not detected. Please check wiring. Freezing...");
