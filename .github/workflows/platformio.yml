@@ -39,5 +39,5 @@ jobs:
           pio run
       - uses: actions/upload-artifact@v2
         with:
-          name: firmware_esp32dev
+          name: firmware_esp32dev-v${{ steps.vars.outputs.version }}.bin
           path: .pio/build/esp32dev/firmware.bin
