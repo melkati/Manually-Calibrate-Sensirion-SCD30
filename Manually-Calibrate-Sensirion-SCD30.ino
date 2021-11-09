@@ -4,6 +4,7 @@
   
   Required libraries:
    - SparkFun_SCD30_Arduino_Library written by Nathan Seidle (SparkFun) at https://github.com/sparkfun/SparkFun_SCD30_Arduino_Library
+   - Uses to maintan version numbers https://github.com/sblantipodi/platformio_version_increment
 
   To-do:
   - Implement support for TTGO T-Display by showing status and count down timer on display
@@ -25,6 +26,7 @@
 */
 
 #include "SparkFun_SCD30_Arduino_Library.h"
+#include "Version.h"
 
 // #define ALTERNATIVE_I2C_PINS // For the compact build as shown at https://emariete.com/medidor-co2-display-tft-color-ttgo-t-display-sensirion-scd30/
 #define LEDPIN 2 // For standard ESP32 Devkit Board the bultin LED GPIO is 2
@@ -66,6 +68,8 @@ void setup()
   Serial.begin(115200);
   Serial.println();
   Serial.println("Starting up...");
+  Serial.println("Project version: " + String(VERSION));
+  Serial.println("Build timestamp:" + String(BUILD_TIMESTAMP));
 
   // Set pin mode
   pinMode(LEDPIN,OUTPUT);

@@ -1,3 +1,7 @@
+[![PlatformIO](https://github.com/melkati/CO2-Gadget/workflows/PlatformIO/badge.svg)](https://github.com/melkati/Manually-Calibrate-Sensirion-SCD30/actions/)
+[![Telegram Group](https://img.shields.io/endpoint?color=neon&style=flat-square&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Femariete_chat)](https://t.me/emariete_chat)
+![Twitter Follow](https://img.shields.io/twitter/follow/e_mariete?style=social)
+
 # Manually-Calibrate-Sensirion-SCD30
  Simple skech to manually calibrate CO2 sensor Sensirion SCD30
 
