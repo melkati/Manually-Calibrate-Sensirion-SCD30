@@ -12,7 +12,6 @@ on:
  workflow_dispatch:
   
 jobs:
-
   generate-matrix:
     runs-on: ubuntu-20.04
     outputs:
@@ -70,7 +69,7 @@ jobs:
           platformio update
       - name: Build test
         run: |
-          pio run
+          pio run -e ${{ matrix.env }}
       - uses: actions/upload-artifact@v2
         with:
           name: Calibrate_SCD30_${{ matrix.env }}-v${{ steps.vars.outputs.version }}-${{ steps.get-date.outputs.date }}.bin
@@ -82,5 +81,8 @@ jobs:
           files:
             .pio/build/*/*.bin
           draft: False
+          prerelease: False
+          name: Release v${{ steps.vars.outputs.version }}
+          generate_release_notes: True
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
